@@ -100,9 +100,9 @@ export default function App() {
       {state.hits.length > 0 && (
         <ImageGallery hits={state.hits} onHitClick={handleHitClick} />
       )}
-      {/* {state.isModalShow && (
+      {state.isModalShow && (
         <Modal selectedHit={state.selectedHit} hideModal={toggleModal} />
-      )} */}
+      )}
       {state.loadMore && <LoadMoreBtn onLoadMore={handleLoadMoreButton} />}
     </div>
   );
