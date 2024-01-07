@@ -34,7 +34,6 @@ export default function App() {
       const { query, page } = state;
 
       if (query === '') {
-        Notify.warning('Search query is empty.');
         return;
       }
 
@@ -60,10 +59,8 @@ export default function App() {
       }
     };
 
-    if (state.query !== '') {
-      fetchData();
-    }
-  }, [state.query, state.page]);
+    fetchData();
+  }, [state.query, state.page, state]);
 
   const handleSearchbarSubmit = newQuery => {
     if (newQuery === state.query) {
