@@ -8,9 +8,16 @@ export default function Modal({ selectedHit, hideModal }) {
     return () => document.removeEventListener('keydown', handleEscClick);
   }, []);
 
+  const handleOverlayClick = () => {
+    hideModal();
+  };
+  const handleModalClick = e => {
+    e.stopPropagation();
+  };
+
   return (
-    <div className={styles['Overlay']}>
-      <div className={styles['Modal']}>
+    <div className={styles['Overlay']} onClick={handleOverlayClick}>
+      <div className={styles['Modal']} onClick={handleModalClick}>
         <img src={selectedHit.largeImageURL} alt={selectedHit.tags} />
       </div>
     </div>

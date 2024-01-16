@@ -1,6 +1,6 @@
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import styles from './ImageGallery.module.css';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 
 export default function ImageGallery({ hits, onHitClick }) {
   return (
