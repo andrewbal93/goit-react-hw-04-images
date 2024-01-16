@@ -31,24 +31,25 @@ export default function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { query, page } = state;
+      // const { query, page } = state;
 
-      if (query === '') {
+      if (state.query === '') {
         Notify.warning('Search query is empty.');
         return;
       }
 
       try {
         setState(prev => ({ ...prev, loader: true }));
-        const data = await fetchImgs(query, page);
+        const data = await fetchImgs(state.query, state.page);
 
         if (data.hits && data.hits.length > 0) {
-          page === 1 && Notify.success(`We found ${data.totalHits} results`);
+          state.page === 1 &&
+            Notify.success(`We found ${data.totalHits} results`);
 
           setState(prev => ({
             ...prev,
             hits: [...prev.hits, ...data.hits],
-            loadMore: page < Math.ceil(data.totalHits / 12),
+            loadMore: state.page < Math.ceil(data.totalHits / 12),
           }));
         } else {
           Notify.failure('There are no results for your query.');
