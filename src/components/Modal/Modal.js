@@ -6,7 +6,7 @@ export default function Modal({ selectedHit, hideModal }) {
     const handleEscClick = e => e.code === 'Escape' && hideModal();
     document.addEventListener('keydown', handleEscClick);
     return () => document.removeEventListener('keydown', handleEscClick);
-  }, []);
+  }, [hideModal]);
 
   const handleOverlayClick = () => {
     hideModal();
